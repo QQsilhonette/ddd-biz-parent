@@ -1,7 +1,7 @@
 package org.ddd.all.domain.repository;
 
 import org.ddd.all.domain.entity.PmsBrand;
-import org.ddd.all.infrastructure.mapper.brand.PmsBrandMapper;
+import org.ddd.all.infrastructure.mapper.PmsBrandMapper;
 import org.ddd.biz.platform.framework.ddd.DomainRepository;
 
 import javax.annotation.Resource;

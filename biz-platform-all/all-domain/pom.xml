@@ -14,7 +14,6 @@
         <dependency>
             <groupId>org.ddd.biz</groupId>
             <artifactId>all-infrastructure</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

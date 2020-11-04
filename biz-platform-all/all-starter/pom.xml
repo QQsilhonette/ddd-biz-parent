@@ -17,20 +17,29 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd.biz</groupId>
+            <artifactId>all-controller</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ddd.biz</groupId>
+            <artifactId>all-app</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.ddd.biz.parent</groupId>
             <artifactId>biz-platform-framework</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.ddd.biz.parent</groupId>
             <artifactId>biz-platform-test</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.ddd.biz.parent</groupId>
             <artifactId>biz-platform-starter</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>

@@ -27,6 +27,7 @@
     </parent>
 
     <properties>
+        <all.version>1.0.0-SNAPSHOT</all.version>
         <biz.platform.framework.version>1.0.0-SNAPSHOT</biz.platform.framework.version>
         <fastjson.version>1.2.74</fastjson.version>
         <mybatis.spring.start.version>2.1.3</mybatis.spring.start.version>
@@ -35,6 +36,36 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-controller</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz</groupId>
+                <artifactId>all-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.ddd.biz.parent</groupId>
                 <artifactId>biz-platform-framework</artifactId>
                 <version>${biz.platform.framework.version}</version>
@@ -42,6 +73,16 @@
             <dependency>
                 <groupId>org.ddd.biz.parent</groupId>
                 <artifactId>biz-platform-common</artifactId>
+                <version>${biz.platform.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz.parent</groupId>
+                <artifactId>biz-platform-test</artifactId>
+                <version>${biz.platform.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ddd.biz.parent</groupId>
+                <artifactId>biz-platform-starter</artifactId>
                 <version>${biz.platform.framework.version}</version>
             </dependency>
             <dependency>

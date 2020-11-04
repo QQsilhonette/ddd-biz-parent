@@ -14,17 +14,14 @@
         <dependency>
             <groupId>org.ddd.biz</groupId>
             <artifactId>all-domain</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ddd.biz</groupId>
             <artifactId>all-client</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ddd.biz</groupId>
             <artifactId>all-common</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
