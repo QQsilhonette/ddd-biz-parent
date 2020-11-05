@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.ddd.all.infrastructure.generated.PmsBrandMapper">
-  <resultMap id="BaseResultMap" type="org.ddd.all.infrastructure.generated.PmsBrandDO">
+<mapper namespace="org.ddd.all.infrastructure.mapper.PmsBrandMapper">
+  <resultMap id="BaseResultMap" type="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
     <!--@mbg.generated-->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="platform" jdbcType="INTEGER" property="platform" />
@@ -25,7 +25,7 @@
     delete from pms_brand
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="org.ddd.all.infrastructure.generated.PmsBrandDO">
+  <insert id="insert" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
     <!--@mbg.generated-->
     insert into pms_brand (id, platform, tenant_id, 
       `name`, first_letter, sort, 
@@ -40,7 +40,7 @@
       #{isDelete,jdbcType=TINYINT}, #{gmtCreate,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, 
       #{brandStory,jdbcType=CLOB})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="org.ddd.all.infrastructure.generated.PmsBrandDO">
+  <update id="updateByPrimaryKey" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
     <!--@mbg.generated-->
     update pms_brand
     set platform = #{platform,jdbcType=INTEGER},

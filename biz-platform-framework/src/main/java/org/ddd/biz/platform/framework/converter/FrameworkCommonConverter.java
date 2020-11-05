@@ -9,8 +9,12 @@ import org.mapstruct.NullValueCheckStrategy;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static org.ddd.biz.platform.framework.constants.FrameworkConstants.OBJECT_MAPPER;
 
 @Mapper(componentModel = "spring", uses = {}, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface FrameworkCommonConverter {
@@ -76,4 +80,12 @@ public interface FrameworkCommonConverter {
         }
     }
 
+    default List<Map> toMapList(String jsonArray) {
+        try {
+            return OBJECT_MAPPER.readValue(jsonArray, OBJECT_MAPPER.getTypeFactory().constructCollectionType(List.class, Map.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
 }
