@@ -61,7 +61,7 @@ public class MybatisGenerator {
             List<String> warnings = new ArrayList<>();
             Configuration config = new Configuration();
             Context context = new Context(ModelType.CONDITIONAL);
-            context.setTargetRuntime("MyBatis3Simple");
+            context.setTargetRuntime("MyBatis3");
             context.setId("defaultContext");
             //自动识别数据库关键字，默认false，如果设置为true，
             //根据SqlReservedWords中定义的关键字列表；一般保留默认值，遇到数据库关键字（Java关键字），
@@ -132,17 +132,22 @@ public class MybatisGenerator {
             sqlMapGeneratorConfiguration.setTargetPackage("generated");
             sqlMapGeneratorConfiguration.addProperty("enableSubPackages", "true");
             context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfiguration);
-            TableConfiguration tableConfiguration = new TableConfiguration(context);
 
             /**
              * 表名的前缀需要根据具体项目替换
              */
+            TableConfiguration tableConfiguration = new TableConfiguration(context);
             tableConfiguration.setTableName(SYS_PREF + tables);
             DomainObjectRenamingRule domainObjectRenamingRule = new DomainObjectRenamingRule();
             domainObjectRenamingRule.setReplaceString("");
             domainObjectRenamingRule.setSearchString(REPLACE_SYS_PREF);
             tableConfiguration.setDomainObjectRenamingRule(domainObjectRenamingRule);
             //tableConfiguration.addIgnoredColumn(new IgnoredColumn(STATUS_COLUMN_NAME));
+            tableConfiguration.setDeleteByPrimaryKeyStatementEnabled(false);
+            tableConfiguration.setDeleteByExampleStatementEnabled(false);
+            tableConfiguration.setUpdateByExampleStatementEnabled(false);
+            tableConfiguration.setSelectByExampleStatementEnabled(false);
+            tableConfiguration.setCountByExampleStatementEnabled(false);
             context.addTableConfiguration(tableConfiguration);
             config.addContext(context);
 
