@@ -11,5 +11,7 @@ public interface PmsBrandConverter {
 
     PmsBrand do2Entity(PmsBrandDO brandDO);
 
+    PmsBrandDO entity2DO(PmsBrand pmsBrand);
+
     PmsBrandDTO entity2Dto(PmsBrand brand);
 }

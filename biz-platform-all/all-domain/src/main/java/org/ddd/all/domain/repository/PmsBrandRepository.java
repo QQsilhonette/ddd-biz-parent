@@ -27,7 +27,9 @@ public class PmsBrandRepository extends DomainRepository<PmsBrand> {
 
     @Override
     public Optional<PmsBrand> findOneById(Object id) {
-        return Optional.empty();
+        PmsBrandDO pmsBrandDO = pmsBrandMapper.selectByPrimaryKey((Long)id);
+        PmsBrand pmsBrand = pmsBrandConverter.do2Entity(pmsBrandDO);
+        return Optional.ofNullable(pmsBrand);
     }
 
     @Override
@@ -36,13 +38,16 @@ public class PmsBrandRepository extends DomainRepository<PmsBrand> {
     }
 
     @Override
-    protected void add(PmsBrand pmsBrand) {
-
+    public void add(PmsBrand pmsBrand) {
+        PmsBrandDO pmsBrandDO = pmsBrandConverter.entity2DO(pmsBrand);
+        int insert = pmsBrandMapper.insertSelective(pmsBrandDO);
+        assert insert == 1;
+        pmsBrand.setId(pmsBrandDO.getId());
     }
 
     @Override
-    protected void update(PmsBrand pmsBrand) {
-
+    public void update(PmsBrand pmsBrand) {
+        pmsBrandMapper.updateByPrimaryKeySelective(pmsBrandConverter.entity2DO(pmsBrand));
     }
 
     public List<PmsBrand> selectAll() {

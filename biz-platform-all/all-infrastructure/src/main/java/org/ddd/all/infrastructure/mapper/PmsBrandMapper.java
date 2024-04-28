@@ -1,23 +1,24 @@
 package org.ddd.all.infrastructure.mapper;
 
 import java.util.List;
+
 import org.ddd.all.infrastructure.dataobject.PmsBrandDO;
 
 /**
  * @mbg.generated
  * 表名: pms_brand
- * @date 2020/10/23
+ * @date 2024/04/28
  */
 public interface PmsBrandMapper {
     /**
      * @mbg.generated
      */
-    int deleteByPrimaryKey(Long id);
+    int insert(PmsBrandDO record);
 
     /**
      * @mbg.generated
      */
-    int insert(PmsBrandDO record);
+    int insertSelective(PmsBrandDO record);
 
     /**
      * @mbg.generated
@@ -27,10 +28,17 @@ public interface PmsBrandMapper {
     /**
      * @mbg.generated
      */
-    List<PmsBrandDO> selectAll();
+    int updateByPrimaryKeySelective(PmsBrandDO record);
+
+    /**
+     * @mbg.generated
+     */
+    int updateByPrimaryKeyWithBLOBs(PmsBrandDO record);
 
     /**
      * @mbg.generated
      */
     int updateByPrimaryKey(PmsBrandDO record);
+
+    List<PmsBrandDO> selectAll();
 }

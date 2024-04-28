@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ddd.all.infrastructure.mapper.PmsBrandMapper">
+  <resultMap id="BaseResultMap" type="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="platform" jdbcType="INTEGER" property="platform" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="first_letter" jdbcType="VARCHAR" property="firstLetter" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="factory_status" jdbcType="INTEGER" property="factoryStatus" />
+    <result column="show_status" jdbcType="INTEGER" property="showStatus" />
+    <result column="product_count" jdbcType="INTEGER" property="productCount" />
+    <result column="product_comment_count" jdbcType="INTEGER" property="productCommentCount" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="big_pic" jdbcType="VARCHAR" property="bigPic" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="gmt_create" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="BIGINT" property="gmtModified" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    <result column="brand_story" jdbcType="CLOB" property="brandStory" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, platform, tenant_id, `name`, first_letter, sort, factory_status, show_status, 
+    product_count, product_comment_count, logo, big_pic, is_delete, gmt_create, gmt_modified
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--@mbg.generated-->
+    brand_story
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pms_brand
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    insert into pms_brand (id, platform, tenant_id, 
+      `name`, first_letter, sort, 
+      factory_status, show_status, product_count, 
+      product_comment_count, logo, big_pic, 
+      is_delete, gmt_create, gmt_modified, 
+      brand_story)
+    values (#{id,jdbcType=BIGINT}, #{platform,jdbcType=INTEGER}, #{tenantId,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{firstLetter,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{factoryStatus,jdbcType=INTEGER}, #{showStatus,jdbcType=INTEGER}, #{productCount,jdbcType=INTEGER}, 
+      #{productCommentCount,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{bigPic,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=TINYINT}, #{gmtCreate,jdbcType=BIGINT}, #{gmtModified,jdbcType=BIGINT}, 
+      #{brandStory,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true"  keyColumn="id" keyProperty="id"
+          parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    insert into pms_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="platform != null">
+        platform,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="firstLetter != null">
+        first_letter,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="factoryStatus != null">
+        factory_status,
+      </if>
+      <if test="showStatus != null">
+        show_status,
+      </if>
+      <if test="productCount != null">
+        product_count,
+      </if>
+      <if test="productCommentCount != null">
+        product_comment_count,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="bigPic != null">
+        big_pic,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="brandStory != null">
+        brand_story,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLetter != null">
+        #{firstLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="factoryStatus != null">
+        #{factoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null">
+        #{showStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null">
+        #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productCommentCount != null">
+        #{productCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPic != null">
+        #{bigPic,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=BIGINT},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="brandStory != null">
+        #{brandStory,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    update pms_brand
+    <set>
+      <if test="platform != null">
+        platform = #{platform,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLetter != null">
+        first_letter = #{firstLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="factoryStatus != null">
+        factory_status = #{factoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null">
+        show_status = #{showStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null">
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productCommentCount != null">
+        product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPic != null">
+        big_pic = #{bigPic,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=BIGINT},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      </if>
+      <if test="brandStory != null">
+        brand_story = #{brandStory,jdbcType=CLOB},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    update pms_brand
+    set platform = #{platform,jdbcType=INTEGER},
+      tenant_id = #{tenantId,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      gmt_create = #{gmtCreate,jdbcType=BIGINT},
+      gmt_modified = #{gmtModified,jdbcType=BIGINT},
+      brand_story = #{brandStory,jdbcType=CLOB}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.ddd.all.infrastructure.dataobject.PmsBrandDO">
+    <!--@mbg.generated-->
+    update pms_brand
+    set platform = #{platform,jdbcType=INTEGER},
+      tenant_id = #{tenantId,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      gmt_create = #{gmtCreate,jdbcType=BIGINT},
+      gmt_modified = #{gmtModified,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select id, platform, tenant_id, `name`, first_letter, sort, factory_status, show_status,
+    product_count, product_comment_count, logo, big_pic, is_delete, gmt_create, gmt_modified,
+    brand_story
+    from pms_brand
+  </select>
+</mapper>
